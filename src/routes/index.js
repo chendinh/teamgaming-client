@@ -1,7 +1,7 @@
 // Components
-import HomeScreen from 'screens/Home';
-import JoinScreen from 'screens/Join';
-import ChatScreen from 'screens/Chat';
+import HomeScreen from '../screens/Home/index';
+import JoinScreen from '../screens/Join/index';
+import ChatScreen from '../screens/Chat/index';
 
 // import ContactPage from 'pages/Contact';
 // import AboutPage from 'pages/About';
