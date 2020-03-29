@@ -47,7 +47,6 @@ const Join = (props) => {
             setImage(imageTemp)
         }, 1000)
 
-
         return () => {
             clearInterval(timeout)
         }
