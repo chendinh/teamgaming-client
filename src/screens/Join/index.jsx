@@ -29,17 +29,28 @@ const Join = (props) => {
     const [, rerender] = useState()
 
     useEffect(() => {
+        let imageTemp
+
         axios.get('https://dog.ceo/api/breeds/image/random')
-            .then((res) => {
-                if (res && res.data && res.data.message) {
-                    setImage(res.data.message)
-                    console.log(res);
-                }
-            })
-            .catch((error) => {
-                setImage(defaultImageAvatar)
-                console.log(error);
-            })
+        .then((res) => {
+            if (res && res.data && res.data.message) {
+                imageTemp = res.data.message
+                console.log(res);
+            }
+        })
+        .catch((error) => {
+            setImage(defaultImageAvatar)
+            console.log(error);
+        })
+
+        const timeout = setInterval(() => {
+            setImage(imageTemp)
+        }, 1000)
+
+
+        return () => {
+            clearInterval(timeout)
+        }
     },[])
 
 
@@ -110,13 +121,16 @@ const Join = (props) => {
         }
     }
 
-
     return (
         <Fragment>
             <div className="joinOuterContainer">
                 <div className="joinInnerContainer">
                     <h1 className="heading">Xin Chào</h1>
-                    <img src={image} className="userAvatar"/>
+                    {image ? <img src={image} className="userAvatar"/> : 
+                        <div class="animated-container">
+                            <div id="animated-example" class="animated bounce"></div>
+                        </div>
+                    }
                     <div className="inputBox">
                         <input placeholder="Tên" className="joinInput" type="text" onChange={handleOnChangeUsername} />
                     </div>

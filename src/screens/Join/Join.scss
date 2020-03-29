@@ -22,7 +22,7 @@
     }
   }
   .userAvatar {
-    height: 200px;
+    height: 230px;
     max-width: 100%;
     margin-bottom: 20px;
   }
@@ -70,6 +70,63 @@
   
   .mt-20 {
     margin-top: 20px;
+  }
+
+  .animated-container {
+    height: 230px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .animated {
+
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+  }
+  @-webkit-keyframes bounce {
+    0%, 100% {
+      -webkit-transform: translateY(0);
+    }
+    50% {
+      -webkit-transform: translateY(-5px);
+    }
+  }
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .bounce {
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+  }
+  #animated-example {
+    width: 40px;
+    height: 40px;
+    background-image: url('../../assets/icons/dogFaceIcon.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    // background-color: red;
+    position: relative;
+    border-radius: 100%;
+    margin: auto;
+  }
+  hr {
+    position: relative;
+    top: 92px;
+    left: -300px;
+    width: 200px;
   }
 }
 
